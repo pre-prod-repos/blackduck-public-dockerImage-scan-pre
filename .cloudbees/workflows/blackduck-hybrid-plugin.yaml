@@ -2,8 +2,8 @@ name: blackduck-hybrid-plugin
 kind: workflow
 apiVersion: automation.cloudbees.io/v1alpha1
 on:
-  schedule:
-    - cron: 35 20 * * 1-5
+  # schedule:
+  #   - cron: 35 20 * * 1-5
   workflow_dispatch:
 permissions:
   scm-token-own: read
@@ -22,6 +22,6 @@ jobs:
           ref: main
           server-url: https://blackduck.saas-preprod.beescloud.com
           api-token: ${{ secrets.BD_API_TOKEN }}
-          project-name: blackduck-public-dockerImage-scan
-          project-version: 0.0.3
+          project-name: blackduck-public-dockerImage-scan-pre
+          project-version: 0.0.1
           detect-cli-params: --detect.tools=CONTAINER_SCAN --detect.container.scan.file.path=./nginx.tar
